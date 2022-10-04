@@ -24,6 +24,11 @@ public static class IDateTimeIsExtensions
         return dateTimeIs.DateTime < dateTime;
     }
 
+    public static IDateTimeIsExactlyInitial Exactly(this IDateTimeIs dateTimeIs, double number)
+    {
+        return new DateTimeIsDelclarationInitial(dateTimeIs.DateTime, number);
+    }
+
     public static IDateTimeIsWithinInitial Within(this IDateTimeIs dateTimeIs, double number)
     {
         return new DateTimeIsDelclarationInitial(dateTimeIs.DateTime, number);
