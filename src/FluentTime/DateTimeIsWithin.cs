@@ -1,4 +1,4 @@
-﻿namespace DateDoodles;
+﻿namespace FluentTime;
 
 public interface IDateTimeIsWithin
 {

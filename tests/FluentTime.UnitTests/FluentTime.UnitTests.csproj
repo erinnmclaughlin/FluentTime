@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\DateDoodles\DateDoodles.csproj" />
+    <ProjectReference Include="..\..\src\FluentTime\FluentTime.csproj" />
   </ItemGroup>
 
 </Project>

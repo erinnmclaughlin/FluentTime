@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 
-namespace DateDoodles.UnitTests;
+namespace FluentTime.UnitTests;
 
 public class DateTimeIsAtLeastTests
 {

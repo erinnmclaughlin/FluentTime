@@ -1,6 +1,6 @@
-﻿using DateDoodles.Internal;
+﻿using FluentTime.Internal;
 
-namespace DateDoodles;
+namespace FluentTime;
 
 public static class DateTimeExtensions
 {
