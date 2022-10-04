@@ -4,28 +4,28 @@ namespace FluentTime;
 
 public interface IDateTimeIs
 {
-    DateTime Value { get; }
+    DateTime DateTime { get; }
 }
 
 public static class IDateTimeIsExtensions
 {
     public static bool After(this IDateTimeIs dateTimeIs, DateTime dateTime)
     {
-        return dateTimeIs.Value > dateTime;
+        return dateTimeIs.DateTime > dateTime;
     }
 
     public static IDateTimeIsAtLeast AtLeast(this IDateTimeIs dateTimeIs, double number)
     {
-        return new DateTimeIsAtLeast(dateTimeIs, number);
+        return new DateTimeIsDelclaration(dateTimeIs.DateTime, number);
     }
 
     public static bool Before(this IDateTimeIs dateTimeIs, DateTime dateTime)
     {
-        return dateTimeIs.Value < dateTime;
+        return dateTimeIs.DateTime < dateTime;
     }
 
     public static IDateTimeIsWithin Within(this IDateTimeIs dateTimeIs, double number)
     {
-        return new DateTimeIsWithin(dateTimeIs, number);
+        return new DateTimeIsDelclaration(dateTimeIs.DateTime, number);
     }
 }

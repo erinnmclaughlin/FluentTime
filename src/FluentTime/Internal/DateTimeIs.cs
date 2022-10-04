@@ -1,2 +1,3 @@
 ﻿namespace FluentTime.Internal;
-internal sealed record DateTimeIs(DateTime Value) : IDateTimeIs;
+
+internal sealed record DateTimeIs(DateTime DateTime) : IDateTimeIs;
