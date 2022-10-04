@@ -29,9 +29,6 @@ public interface IDateTimeIsAtLeast
     TimeMeasurement Value { get; }
 }
 
-public record TimeMeasurement(double Value, UnitOfTime Units);
-public enum UnitOfTime { Seconds, Minutes, Hours, Days}
-
 public static class IDateTimeIsAtLeastExtensions
 {
     public static bool After(this IDateTimeIsAtLeast atLeast, DateTime dateTime) => atLeast.Value.Units switch
