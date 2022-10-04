@@ -1,26 +1,54 @@
-﻿namespace FluentTime;
+﻿using FluentTime.Internal;
 
-public interface IDateTimeIsAtLeast
+namespace FluentTime;
+
+public interface IDateTimeIsAtLeastInitial
 {
     DateTime DateTime { get; }
     double Value { get; }
 }
 
+public static class IDateTimeIsAtLeastInitialExtensions
+{
+    public static IDateTimeIsAtLeast Seconds(this IDateTimeIsAtLeastInitial i)
+        => new DateTimeIsDeclaration(i.DateTime, new(i.Value, UnitOfTime.Seconds));
+
+    public static IDateTimeIsAtLeast Minutes(this IDateTimeIsAtLeastInitial i)
+        => new DateTimeIsDeclaration(i.DateTime, new(i.Value, UnitOfTime.Minutes));
+
+    public static IDateTimeIsAtLeast Hours(this IDateTimeIsAtLeastInitial i)
+        => new DateTimeIsDeclaration(i.DateTime, new(i.Value, UnitOfTime.Hours));
+
+    public static IDateTimeIsAtLeast Days(this IDateTimeIsAtLeastInitial i)
+        => new DateTimeIsDeclaration(i.DateTime, new(i.Value, UnitOfTime.Days));
+}
+
+public interface IDateTimeIsAtLeast
+{
+    DateTime DateTime { get; }
+    TimeMeasurement Value { get; }
+}
+
+public record TimeMeasurement(double Value, UnitOfTime Units);
+public enum UnitOfTime { Seconds, Minutes, Hours, Days}
+
 public static class IDateTimeIsAtLeastExtensions
 {
-    public static bool SecondsAfter(this IDateTimeIsAtLeast atLeast, DateTime dateTime) => atLeast.TotalSeconds(dateTime) >= atLeast.Value;
-    public static bool SecondsBefore(this IDateTimeIsAtLeast atLeast, DateTime dateTime) => (-1.0 * atLeast.TotalSeconds(dateTime)) <= atLeast.Value;
-    private static double TotalSeconds(this IDateTimeIsAtLeast atLeast, DateTime dateTime) => (atLeast.DateTime - dateTime).TotalSeconds;
+    public static bool After(this IDateTimeIsAtLeast atLeast, DateTime dateTime) => atLeast.Value.Units switch
+    {
+        UnitOfTime.Seconds => (atLeast.DateTime - dateTime).TotalSeconds,
+        UnitOfTime.Minutes => (atLeast.DateTime - dateTime).TotalMinutes,
+        UnitOfTime.Hours => (atLeast.DateTime - dateTime).TotalHours,
+        UnitOfTime.Days => (atLeast.DateTime - dateTime).TotalDays,
+        _ => throw new NotSupportedException()
+    } >= atLeast.Value.Value;
 
-    public static bool MinutesAfter(this IDateTimeIsAtLeast atLeast, DateTime dateTime) => atLeast.TotalMinutes(dateTime) >= atLeast.Value;
-    public static bool MinutesBefore(this IDateTimeIsAtLeast atLeast, DateTime dateTime) => (-1.0 * atLeast.TotalMinutes(dateTime)) <= atLeast.Value;
-    private static double TotalMinutes(this IDateTimeIsAtLeast atLeast, DateTime dateTime) => (atLeast.DateTime - dateTime).TotalMinutes;
-
-    public static bool HoursAfter(this IDateTimeIsAtLeast atLeast, DateTime dateTime) => atLeast.TotalHours(dateTime) >= atLeast.Value;
-    public static bool HoursBefore(this IDateTimeIsAtLeast atLeast, DateTime dateTime) => (-1.0 * atLeast.TotalHours(dateTime)) <= atLeast.Value;
-    private static double TotalHours(this IDateTimeIsAtLeast atLeast, DateTime dateTime) => (atLeast.DateTime - dateTime).TotalHours;
-
-    public static bool DaysAfter(this IDateTimeIsAtLeast atLeast, DateTime dateTime) => atLeast.TotalDays(dateTime) >= atLeast.Value;
-    public static bool DaysBefore(this IDateTimeIsAtLeast atLeast, DateTime dateTime) => (-1.0 * atLeast.TotalDays(dateTime)) <= atLeast.Value;
-    private static double TotalDays(this IDateTimeIsAtLeast atLeast, DateTime dateTime) => (atLeast.DateTime - dateTime).TotalDays;
+    public static bool Before(this IDateTimeIsAtLeast atLeast, DateTime dateTime) => atLeast.Value.Units switch
+    {
+        UnitOfTime.Seconds => (dateTime - atLeast.DateTime).TotalSeconds,
+        UnitOfTime.Minutes => (dateTime- atLeast.DateTime).TotalMinutes,
+        UnitOfTime.Hours => (dateTime- atLeast.DateTime).TotalHours,
+        UnitOfTime.Days => (dateTime - atLeast.DateTime).TotalDays,
+        _ => throw new NotSupportedException()
+    } <= atLeast.Value.Value;
 }

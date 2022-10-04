@@ -14,9 +14,9 @@ public static class IDateTimeIsExtensions
         return dateTimeIs.DateTime > dateTime;
     }
 
-    public static IDateTimeIsAtLeast AtLeast(this IDateTimeIs dateTimeIs, double number)
+    public static IDateTimeIsAtLeastInitial AtLeast(this IDateTimeIs dateTimeIs, double number)
     {
-        return new DateTimeIsDelclaration(dateTimeIs.DateTime, number);
+        return new DateTimeIsDelclarationInitial(dateTimeIs.DateTime, number);
     }
 
     public static bool Before(this IDateTimeIs dateTimeIs, DateTime dateTime)
@@ -24,8 +24,8 @@ public static class IDateTimeIsExtensions
         return dateTimeIs.DateTime < dateTime;
     }
 
-    public static IDateTimeIsWithin Within(this IDateTimeIs dateTimeIs, double number)
+    public static IDateTimeIsWithinInitial Within(this IDateTimeIs dateTimeIs, double number)
     {
-        return new DateTimeIsDelclaration(dateTimeIs.DateTime, number);
+        return new DateTimeIsDelclarationInitial(dateTimeIs.DateTime, number);
     }
 }

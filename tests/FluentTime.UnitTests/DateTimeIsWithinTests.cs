@@ -12,12 +12,12 @@ public class DateTimeIsWithinTests
         var futureValue = Now.AddSeconds(2.5);
         var pastValue = Now.AddSeconds(-2.5);
 
-        Now.Is().Within(1).SecondsOf(futureValue).Should().BeFalse();
-        Now.Is().Within(2.5).SecondsOf(futureValue).Should().BeTrue();
-        Now.Is().Within(3).SecondsOf(futureValue).Should().BeTrue();
-        Now.Is().Within(3).SecondsOf(pastValue).Should().BeTrue();
-        Now.Is().Within(2.5).SecondsOf(pastValue).Should().BeTrue();
-        Now.Is().Within(1).SecondsOf(pastValue).Should().BeFalse();
+        Now.Is().Within(1).Seconds().Of(futureValue).Should().BeFalse();
+        Now.Is().Within(2.5).Seconds().Of(futureValue).Should().BeTrue();
+        Now.Is().Within(3).Seconds().Of(futureValue).Should().BeTrue();
+        Now.Is().Within(3).Seconds().Of(pastValue).Should().BeTrue();
+        Now.Is().Within(2.5).Seconds().Of(pastValue).Should().BeTrue();
+        Now.Is().Within(1).Seconds().Of(pastValue).Should().BeFalse();
     }
 
     [Fact]
@@ -26,12 +26,12 @@ public class DateTimeIsWithinTests
         var futureValue = Now.AddMinutes(2.5);
         var pastValue = Now.AddMinutes(-2.5);
 
-        Now.Is().Within(1).MinutesOf(futureValue).Should().BeFalse();
-        Now.Is().Within(2.5).MinutesOf(futureValue).Should().BeTrue();
-        Now.Is().Within(3).MinutesOf(futureValue).Should().BeTrue();
-        Now.Is().Within(3).MinutesOf(pastValue).Should().BeTrue();
-        Now.Is().Within(2.5).MinutesOf(pastValue).Should().BeTrue();
-        Now.Is().Within(1).MinutesOf(pastValue).Should().BeFalse();
+        Now.Is().Within(1).Minutes().Of(futureValue).Should().BeFalse();
+        Now.Is().Within(2.5).Minutes().Of(futureValue).Should().BeTrue();
+        Now.Is().Within(3).Minutes().Of(futureValue).Should().BeTrue();
+        Now.Is().Within(3).Minutes().Of(pastValue).Should().BeTrue();
+        Now.Is().Within(2.5).Minutes().Of(pastValue).Should().BeTrue();
+        Now.Is().Within(1).Minutes().Of(pastValue).Should().BeFalse();
     }
 
     [Fact]
@@ -40,12 +40,12 @@ public class DateTimeIsWithinTests
         var futureValue = Now.AddHours(2.5);
         var pastValue = Now.AddHours(-2.5);
 
-        Now.Is().Within(1).HoursOf(futureValue).Should().BeFalse();
-        Now.Is().Within(2.5).HoursOf(futureValue).Should().BeTrue();
-        Now.Is().Within(3).HoursOf(futureValue).Should().BeTrue();
-        Now.Is().Within(3).HoursOf(pastValue).Should().BeTrue();
-        Now.Is().Within(2.5).HoursOf(pastValue).Should().BeTrue();
-        Now.Is().Within(1).HoursOf(pastValue).Should().BeFalse();
+        Now.Is().Within(1).Hours().Of(futureValue).Should().BeFalse();
+        Now.Is().Within(2.5).Hours().Of(futureValue).Should().BeTrue();
+        Now.Is().Within(3).Hours().Of(futureValue).Should().BeTrue();
+        Now.Is().Within(3).Hours().Of(pastValue).Should().BeTrue();
+        Now.Is().Within(2.5).Hours().Of(pastValue).Should().BeTrue();
+        Now.Is().Within(1).Hours().Of(pastValue).Should().BeFalse();
     }
 
 
@@ -55,11 +55,11 @@ public class DateTimeIsWithinTests
         var futureValue = Now.AddDays(2.5);
         var pastValue = Now.AddDays(-2.5);
 
-        Now.Is().Within(1).DaysOf(futureValue).Should().BeFalse();
-        Now.Is().Within(2.5).DaysOf(futureValue).Should().BeTrue();
-        Now.Is().Within(3).DaysOf(futureValue).Should().BeTrue();
-        Now.Is().Within(3).DaysOf(pastValue).Should().BeTrue();
-        Now.Is().Within(2.5).DaysOf(pastValue).Should().BeTrue();
-        Now.Is().Within(1).DaysOf(pastValue).Should().BeFalse();
+        Now.Is().Within(1).Days().Of(futureValue).Should().BeFalse();
+        Now.Is().Within(2.5).Days().Of(futureValue).Should().BeTrue();
+        Now.Is().Within(3).Days().Of(futureValue).Should().BeTrue();
+        Now.Is().Within(3).Days().Of(pastValue).Should().BeTrue();
+        Now.Is().Within(2.5).Days().Of(pastValue).Should().BeTrue();
+        Now.Is().Within(1).Days().Of(pastValue).Should().BeFalse();
     }
 }
