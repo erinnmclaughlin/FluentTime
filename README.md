@@ -20,6 +20,16 @@ public class ExpirationDateService
     {
         return Currently.It.IsAtLeast(7).Days.After(ExpirationDate);
     }
+
+    public bool WillBeExpiredOn(DateTime dateToCheck)
+    {
+        return dateToCheck.IsAfter(ExpirationDate);
+    }
+
+    public bool WillBeReallyExpiredOn(DateTime dateToCheck)
+    {
+        return dateToCheck.IsAtLeast(7).Days.After(ExpirationDate);
+    }
 }
 ```
 
