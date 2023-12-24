@@ -23,12 +23,12 @@ public class ExpirationDateService
     
     public bool IsExpiredAsOf(DateTime dateToCheck)
     {
-        return dateToCheck.IsAfter(dateToCheck);
+        return dateToCheck.IsAfter(ExpirationDate);
     }
 
     public bool IsAlmostExpiredAsOf(DateTime dateToCheck)
     {
-        return dateToCheck.IsBefore(ExpirationDate) && ExpirationDate.IsWithin(48).Hours.Of(dateToCheck);
+        return dateToCheck.IsBefore(ExpirationDate) && dateToCheck.IsWithin(48).Hours.Of(ExpirationDate);
     }
 }
 ```
