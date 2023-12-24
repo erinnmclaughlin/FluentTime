@@ -1,4 +1,5 @@
 ﻿using FluentTime.Expressions.AtLeast;
+using FluentTime.Expressions.AtMost;
 using FluentTime.Expressions.Exactly;
 using FluentTime.Expressions.Within;
 
@@ -30,18 +31,23 @@ public static class DateTimeExtensions
         return root <= other;
     }
 
-    public static DateTimeIsAtLeastExpressionRoot IsAtLeast(this DateTime root, double number)
+    public static DateTimeIsAtLeastExpressionRoot IsAtLeast(this DateTime root, double magnitude)
     {
-        return new DateTimeIsAtLeastExpressionRoot(root, number);
+        return new(root, magnitude);
     }
 
-    public static DateTimeIsExactlyExpressionRoot IsExactly(this DateTime root, double number)
+    public static DateTimeIsAtMostExpressionRoot IsAtMost(this DateTime root, double magnitude)
     {
-        return new DateTimeIsExactlyExpressionRoot(root, number);
+        return new(root, magnitude);
     }
 
-    public static DateTimeIsWithinExpressionRoot IsWithin(this DateTime root, double number)
+    public static DateTimeIsExactlyExpressionRoot IsExactly(this DateTime root, double magnitude)
     {
-        return new DateTimeIsWithinExpressionRoot(root, number);
+        return new(root, magnitude);
+    }
+
+    public static DateTimeIsWithinExpressionRoot IsWithin(this DateTime root, double magnitude)
+    {
+        return new(root, magnitude);
     }
 }
