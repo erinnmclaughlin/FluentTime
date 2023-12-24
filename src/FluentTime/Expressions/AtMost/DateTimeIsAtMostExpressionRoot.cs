@@ -1,7 +1,6 @@
-﻿using FluentTime.Expressions.AtLeast;
+﻿namespace FluentTime.Expressions.AtMost;
 
-namespace FluentTime.Expressions.AtMost;
-public record DateTimeIsAtMostExpressionRoot(DateTime DateTime, double Magnitude) : DateTimeIsExpressionRoot<DateTimeIsAtMostExpression>
+public record DateTimeIsAtMostExpressionRoot(DateTime DateTime, double Magnitude) : DateTimeIsExpressionRootBase<DateTimeIsAtMostExpression>
 {
     protected override DateTimeIsAtMostExpression GetExpression(UnitOfTime unitOfTime)
     {

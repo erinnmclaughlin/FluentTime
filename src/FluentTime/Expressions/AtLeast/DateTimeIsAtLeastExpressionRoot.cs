@@ -1,6 +1,6 @@
 ﻿namespace FluentTime.Expressions.AtLeast;
 
-public record DateTimeIsAtLeastExpressionRoot(DateTime DateTime, double Magnitude) : DateTimeIsExpressionRoot<DateTimeIsAtLeastExpression>
+public record DateTimeIsAtLeastExpressionRoot(DateTime DateTime, double Magnitude) : DateTimeIsExpressionRootBase<DateTimeIsAtLeastExpression>
 {
     protected override DateTimeIsAtLeastExpression GetExpression(UnitOfTime unitOfTime)
     {

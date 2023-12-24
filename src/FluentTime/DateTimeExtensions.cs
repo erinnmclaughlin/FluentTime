@@ -1,4 +1,5 @@
-﻿using FluentTime.Expressions.AtLeast;
+﻿using FluentTime.Expressions;
+using FluentTime.Expressions.AtLeast;
 using FluentTime.Expressions.AtMost;
 using FluentTime.Expressions.Exactly;
 using FluentTime.Expressions.Within;
@@ -31,23 +32,28 @@ public static class DateTimeExtensions
         return root <= other;
     }
 
-    public static DateTimeIsAtLeastExpressionRoot IsAtLeast(this DateTime root, double magnitude)
+    public static IDateTimeIsExpressionRoot<DateTimeIsAtLeastExpression> IsAtLeast(this DateTime root, double magnitude)
     {
-        return new(root, magnitude);
+        return new DateTimeIsAtLeastExpressionRoot(root, magnitude);
     }
 
-    public static DateTimeIsAtMostExpressionRoot IsAtMost(this DateTime root, double magnitude)
+    public static IDateTimeIsExpressionRoot<DateTimeIsAtMostExpression> IsAtMost(this DateTime root, double magnitude)
     {
-        return new(root, magnitude);
+        return new DateTimeIsAtMostExpressionRoot(root, magnitude);
     }
 
-    public static DateTimeIsExactlyExpressionRoot IsExactly(this DateTime root, double magnitude)
+    public static IDateTimeIsExpressionRoot<DateTimeIsExactlyExpression> IsExactly(this DateTime root, double magnitude)
     {
-        return new(root, magnitude);
+        return new DateTimeIsExactlyExpressionRoot(root, magnitude);
     }
 
-    public static DateTimeIsWithinExpressionRoot IsWithin(this DateTime root, double magnitude)
+    public static IDateTimeIsExpressionRoot<DateTimeIsWithinExpression> IsWithin(this DateTime root, double magnitude)
     {
-        return new(root, magnitude);
+        return new DateTimeIsWithinExpressionRoot(root, magnitude);
+    }
+
+    public static DateTimeIsExpressionBuilderRoot Is(this DateTime root, double magnitude)
+    {
+        return new DateTimeIsExpressionBuilderRoot(root, magnitude);
     }
 }

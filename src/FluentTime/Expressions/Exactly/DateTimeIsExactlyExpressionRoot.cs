@@ -1,8 +1,6 @@
-﻿using FluentTime.Expressions.AtLeast;
+﻿namespace FluentTime.Expressions.Exactly;
 
-namespace FluentTime.Expressions.Exactly;
-
-public record DateTimeIsExactlyExpressionRoot(DateTime DateTime, double Value) : DateTimeIsExpressionRoot<DateTimeIsExactlyExpression>
+public record DateTimeIsExactlyExpressionRoot(DateTime DateTime, double Value) : DateTimeIsExpressionRootBase<DateTimeIsExactlyExpression>
 {
     protected override DateTimeIsExactlyExpression GetExpression(UnitOfTime unitOfTime)
     {

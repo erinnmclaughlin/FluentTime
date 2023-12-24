@@ -1,8 +1,6 @@
-﻿using FluentTime.Expressions.AtLeast;
+﻿namespace FluentTime.Expressions.Within;
 
-namespace FluentTime.Expressions.Within;
-
-public sealed record DateTimeIsWithinExpressionRoot(DateTime DateTime, double Value) : DateTimeIsExpressionRoot<DateTimeIsWithinExpression>
+public sealed record DateTimeIsWithinExpressionRoot(DateTime DateTime, double Value) : DateTimeIsExpressionRootBase<DateTimeIsWithinExpression>
 {
     protected override DateTimeIsWithinExpression GetExpression(UnitOfTime unitOfTime)
     {
