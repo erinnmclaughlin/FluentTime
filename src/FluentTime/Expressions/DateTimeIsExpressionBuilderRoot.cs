@@ -1,8 +1,7 @@
-﻿using FluentTime.Expressions;
-using FluentTime.Expressions.Exactly;
+﻿using FluentTime.Expressions.Exactly;
 using FluentTime.Expressions.OrMore;
 
-namespace FluentTime;
+namespace FluentTime.Expressions;
 
 public record DateTimeIsExpressionBuilderRoot(DateTime DateTime, double Magnitude) : DateTimeIsExpressionRootBase<DateTimeIsExactlyExpression>
 {

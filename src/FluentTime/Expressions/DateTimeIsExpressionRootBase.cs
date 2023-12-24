@@ -1,6 +1,4 @@
-﻿using FluentTime.Expressions;
-
-namespace FluentTime;
+﻿namespace FluentTime.Expressions;
 
 public abstract record DateTimeIsExpressionRootBase<TExpression> : IDateTimeIsExpressionRoot<TExpression>
 {

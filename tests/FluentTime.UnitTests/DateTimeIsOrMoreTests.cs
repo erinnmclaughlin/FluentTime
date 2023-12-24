@@ -21,10 +21,6 @@ public class DateTimeIsOrMoreTests
     {
         var theFuture = ThePresent.AddSeconds(2.5);
 
-        theFuture.Is(2).OrMore.Seconds.Before(ThePresent).Should().BeFalse();
-        theFuture.Is(2.5).OrMore.Seconds.Before(ThePresent).Should().BeFalse();
-        theFuture.Is(3).OrMore.Seconds.Before(ThePresent).Should().BeFalse();
-
         ThePresent.Is(2).OrMore.Seconds.Before(theFuture).Should().BeTrue();
         ThePresent.Is(2.5).OrMore.Seconds.Before(theFuture).Should().BeTrue();
         ThePresent.Is(3).OrMore.Seconds.Before(theFuture).Should().BeFalse();

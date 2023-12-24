@@ -8,27 +8,27 @@ public class ExpirationDateService
 
     public bool IsExpired()
     {
-        return ExpirationDate.IsInThePast();
+        return Currently.It.IsAfter(ExpirationDate);
     }
-
-    public bool IsExpiringSoon()
+    
+    public bool IsAlmostExpired()
     {
-        return !IsExpired() && ExpirationDate.IsWithin(48).Hours;
+        return Currently.It.IsBefore(ExpirationDate) && ExpirationDate.IsWithin(48).Hours;
     }
 
-    public bool IsReallyExpired()
+    public bool IsVeryExpired()
     {
         return Currently.It.IsAtLeast(7).Days.After(ExpirationDate);
     }
-
-    public bool WillBeExpiredOn(DateTime dateToCheck)
+    
+    public bool IsExpiredAsOf(DateTime dateToCheck)
     {
-        return dateToCheck.IsAfter(ExpirationDate);
+        return dateToCheck.IsAfter(dateToCheck);
     }
 
-    public bool WillBeReallyExpiredOn(DateTime dateToCheck)
+    public bool IsAlmostExpiredAsOf(DateTime dateToCheck)
     {
-        return dateToCheck.IsAtLeast(7).Days.After(ExpirationDate);
+        return dateToCheck.IsBefore(ExpirationDate) && ExpirationDate.IsWithin(48).Hours.Of(dateToCheck);
     }
 }
 ```
