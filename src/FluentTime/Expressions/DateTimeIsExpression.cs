@@ -1,6 +1,6 @@
 ﻿namespace FluentTime.Expressions;
 
-internal abstract record DateTimeIsExpression(DateTimeIsContext Context)
+public abstract record DateTimeIsExpression(DateTimeIsContext Context)
 {
     protected double GetMagnitude(DateTime other)
     {

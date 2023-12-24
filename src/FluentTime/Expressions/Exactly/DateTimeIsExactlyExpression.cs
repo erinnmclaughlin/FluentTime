@@ -1,6 +1,6 @@
 ﻿namespace FluentTime.Expressions.Exactly;
 
-internal record DateTimeIsExactlyExpression(DateTimeIsContext Context) : DateTimeIsExpression(Context), IDateTimeIsExactlyExpression
+public record DateTimeIsExactlyExpression(DateTimeIsContext Context) : DateTimeIsExpression(Context)
 {
 
     public bool After(DateTime other) => GetMagnitude(other) == Context.Magnitude;
