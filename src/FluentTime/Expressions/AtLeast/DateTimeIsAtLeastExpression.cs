@@ -4,4 +4,5 @@ public record DateTimeIsAtLeastExpression(DateTimeIsContext Context) : DateTimeI
 {
     public bool After(DateTime other) => GetMagnitude(other) >= Context.Magnitude;
     public bool Before(DateTime other) => -1 * GetMagnitude(other) <= Context.Magnitude;
+    public bool Away() => After(DateTime.Now);
 }

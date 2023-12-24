@@ -88,4 +88,12 @@ public class DateTimeIsAtLeastTests
         ThePresent.IsAtLeast(2.5).Days.Before(futureValue).Should().BeTrue();
         ThePresent.IsAtLeast(3).Days.Before(futureValue).Should().BeTrue();
     }
+
+    [Fact]
+    public void DaysAway_ShouldReturnExpected()
+    {
+        var theFuture = DateTime.Now.AddDays(10);
+
+        theFuture.IsAtLeast(5).Days.Away().Should().BeTrue();
+    }
 }
