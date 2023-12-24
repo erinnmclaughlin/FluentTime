@@ -1,5 +1,5 @@
 # FluentTime
-A fluent interface for working with `DateTime`
+A fluent wrapper around `DateTime`
 
 ```csharp
 public class ExpirationDateService
