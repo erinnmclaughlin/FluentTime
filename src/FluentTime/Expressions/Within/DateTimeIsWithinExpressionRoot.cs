@@ -2,7 +2,7 @@
 
 namespace FluentTime.Expressions.Within;
 
-internal sealed record DateTimeIsWithinExpressionRoot(DateTime DateTime, double Value) : DateTimeIsExpressionRoot<DateTimeIsWithinExpression>
+public sealed record DateTimeIsWithinExpressionRoot(DateTime DateTime, double Value) : DateTimeIsExpressionRoot<DateTimeIsWithinExpression>
 {
     protected override DateTimeIsWithinExpression GetExpression(UnitOfTime unitOfTime)
     {

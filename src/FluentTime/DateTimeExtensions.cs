@@ -20,17 +20,17 @@ public static class DateTimeExtensions
         return root < dateTime;
     }
 
-    public static DateTimeIsExpressionRoot<DateTimeIsAtLeastExpression> IsAtLeast(this DateTime root, double number)
+    public static DateTimeIsAtLeastExpressionRoot IsAtLeast(this DateTime root, double number)
     {
         return new DateTimeIsAtLeastExpressionRoot(root, number);
     }
 
-    public static DateTimeIsExpressionRoot<DateTimeIsExactlyExpression> IsExactly(this DateTime root, double number)
+    public static DateTimeIsExactlyExpressionRoot IsExactly(this DateTime root, double number)
     {
         return new DateTimeIsExactlyExpressionRoot(root, number);
     }
 
-    public static DateTimeIsExpressionRoot<DateTimeIsWithinExpression> IsWithin(this DateTime root, double number)
+    public static DateTimeIsWithinExpressionRoot IsWithin(this DateTime root, double number)
     {
         return new DateTimeIsWithinExpressionRoot(root, number);
     }
