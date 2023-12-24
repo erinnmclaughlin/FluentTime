@@ -3,6 +3,6 @@
 internal record DateTimeIsExactlyExpression(DateTimeIsContext Context) : DateTimeIsExpression(Context), IDateTimeIsExactlyExpression
 {
 
-    public bool After(DateTime other) => GetMagnitude(Context.DateTime - other) == Context.Magnitude;
-    public bool Before(DateTime other) => GetMagnitude(other - Context.DateTime) == Context.Magnitude;
+    public bool After(DateTime other) => GetMagnitude(other) == Context.Magnitude;
+    public bool Before(DateTime other) => -1 * GetMagnitude(other) == Context.Magnitude;
 }

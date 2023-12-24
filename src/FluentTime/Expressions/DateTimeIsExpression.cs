@@ -2,12 +2,16 @@
 
 internal abstract record DateTimeIsExpression(DateTimeIsContext Context)
 {
-    protected double GetMagnitude(TimeSpan timespan) => Context.Units switch
+    protected double GetMagnitude(DateTime other)
     {
-        UnitOfTime.Seconds => timespan.TotalSeconds,
-        UnitOfTime.Minutes => timespan.TotalMinutes,
-        UnitOfTime.Hours => timespan.TotalHours,
-        UnitOfTime.Days => timespan.TotalDays,
-        _ => throw new NotImplementedException()
-    };
+        var timespan = Context.DateTime - other;
+        return Context.Units switch
+        {
+            UnitOfTime.Seconds => timespan.TotalSeconds,
+            UnitOfTime.Minutes => timespan.TotalMinutes,
+            UnitOfTime.Hours => timespan.TotalHours,
+            UnitOfTime.Days => timespan.TotalDays,
+            _ => throw new NotImplementedException()
+        };
+    }
 }

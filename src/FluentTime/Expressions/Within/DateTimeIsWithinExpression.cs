@@ -4,7 +4,6 @@ internal sealed record DateTimeIsWithinExpression(DateTimeIsContext Context) : D
 {
     public bool Of(DateTime other)
     {
-        var timespan = Context.DateTime - other;
-        return Math.Abs(GetMagnitude(timespan)) <= Context.Magnitude;
+        return Math.Abs(GetMagnitude(other)) <= Context.Magnitude;
     }
 }
