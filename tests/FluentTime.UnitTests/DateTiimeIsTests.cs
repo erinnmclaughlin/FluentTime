@@ -10,9 +10,9 @@ public class DateTiimeIsTests
         var thePresent = DateTime.UtcNow;
         var thePast = thePresent.AddSeconds(2.5);
 
-        thePresent.Is().After(thePast).Should().BeFalse();
-        thePresent.Is().After(thePresent).Should().BeFalse();
-        thePast.Is().After(thePresent).Should().BeTrue();
+        thePresent.IsAfter(thePast).Should().BeFalse();
+        thePresent.IsAfter(thePresent).Should().BeFalse();
+        thePast.IsAfter(thePresent).Should().BeTrue();
     }
 
     [Fact]
@@ -21,8 +21,8 @@ public class DateTiimeIsTests
         var thePresent = DateTime.UtcNow;
         var futureValue = thePresent.AddSeconds(2.5);
 
-        thePresent.Is().Before(futureValue).Should().BeTrue();
-        thePresent.Is().Before(thePresent).Should().BeFalse();
-        futureValue.Is().Before(thePresent).Should().BeFalse();
+        thePresent.IsBefore(futureValue).Should().BeTrue();
+        thePresent.IsBefore(thePresent).Should().BeFalse();
+        futureValue.IsBefore(thePresent).Should().BeFalse();
     }
 }

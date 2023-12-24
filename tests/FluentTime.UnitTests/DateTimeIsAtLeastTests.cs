@@ -11,9 +11,9 @@ public class DateTimeIsAtLeastTests
     {
         var futureValue = ThePresent.AddSeconds(2.5);
 
-        futureValue.Is().AtLeast(2).Seconds().After(ThePresent).Should().BeTrue();
-        futureValue.Is().AtLeast(2.5).Seconds().After(ThePresent).Should().BeTrue();
-        futureValue.Is().AtLeast(3).Seconds().After(ThePresent).Should().BeFalse();
+        futureValue.IsAtLeast(2).Seconds.After(ThePresent).Should().BeTrue();
+        futureValue.IsAtLeast(2.5).Seconds.After(ThePresent).Should().BeTrue();
+        futureValue.IsAtLeast(3).Seconds.After(ThePresent).Should().BeFalse();
     }
 
     [Fact]
@@ -21,9 +21,9 @@ public class DateTimeIsAtLeastTests
     {
         var futureValue = ThePresent.AddSeconds(2.5);
 
-        ThePresent.Is().AtLeast(2).Seconds().Before(futureValue).Should().BeFalse();
-        ThePresent.Is().AtLeast(2.5).Seconds().Before(futureValue).Should().BeTrue();
-        ThePresent.Is().AtLeast(3).Seconds().Before(futureValue).Should().BeTrue();
+        ThePresent.IsAtLeast(2).Seconds.Before(futureValue).Should().BeFalse();
+        ThePresent.IsAtLeast(2.5).Seconds.Before(futureValue).Should().BeTrue();
+        ThePresent.IsAtLeast(3).Seconds.Before(futureValue).Should().BeTrue();
     }
 
     [Fact]
@@ -31,9 +31,9 @@ public class DateTimeIsAtLeastTests
     {
         var futureValue = ThePresent.AddMinutes(2.5);
 
-        futureValue.Is().AtLeast(2).Minutes().After(ThePresent).Should().BeTrue();
-        futureValue.Is().AtLeast(2.5).Minutes().After(ThePresent).Should().BeTrue();
-        futureValue.Is().AtLeast(3).Minutes().After(ThePresent).Should().BeFalse();
+        futureValue.IsAtLeast(2).Minutes.After(ThePresent).Should().BeTrue();
+        futureValue.IsAtLeast(2.5).Minutes.After(ThePresent).Should().BeTrue();
+        futureValue.IsAtLeast(3).Minutes.After(ThePresent).Should().BeFalse();
     }
 
     [Fact]
@@ -41,9 +41,9 @@ public class DateTimeIsAtLeastTests
     {
         var futureValue = ThePresent.AddMinutes(2.5);
 
-        ThePresent.Is().AtLeast(2).Minutes().Before(futureValue).Should().BeFalse();
-        ThePresent.Is().AtLeast(2.5).Minutes().Before(futureValue).Should().BeTrue();
-        ThePresent.Is().AtLeast(3).Minutes().Before(futureValue).Should().BeTrue();
+        ThePresent.IsAtLeast(2).Minutes.Before(futureValue).Should().BeFalse();
+        ThePresent.IsAtLeast(2.5).Minutes.Before(futureValue).Should().BeTrue();
+        ThePresent.IsAtLeast(3).Minutes.Before(futureValue).Should().BeTrue();
     }
 
     [Fact]
@@ -51,9 +51,9 @@ public class DateTimeIsAtLeastTests
     {
         var futureValue = ThePresent.AddHours(2.5);
 
-        futureValue.Is().AtLeast(2).Hours().After(ThePresent).Should().BeTrue();
-        futureValue.Is().AtLeast(2.5).Hours().After(ThePresent).Should().BeTrue();
-        futureValue.Is().AtLeast(3).Hours().After(ThePresent).Should().BeFalse();
+        futureValue.IsAtLeast(2).Hours.After(ThePresent).Should().BeTrue();
+        futureValue.IsAtLeast(2.5).Hours.After(ThePresent).Should().BeTrue();
+        futureValue.IsAtLeast(3).Hours.After(ThePresent).Should().BeFalse();
     }
 
 
@@ -62,9 +62,9 @@ public class DateTimeIsAtLeastTests
     {
         var futureValue = ThePresent.AddHours(2.5);
 
-        ThePresent.Is().AtLeast(2).Hours().Before(futureValue).Should().BeFalse();
-        ThePresent.Is().AtLeast(2.5).Hours().Before(futureValue).Should().BeTrue();
-        ThePresent.Is().AtLeast(3).Hours().Before(futureValue).Should().BeTrue();
+        ThePresent.IsAtLeast(2).Hours.Before(futureValue).Should().BeFalse();
+        ThePresent.IsAtLeast(2.5).Hours.Before(futureValue).Should().BeTrue();
+        ThePresent.IsAtLeast(3).Hours.Before(futureValue).Should().BeTrue();
     }
 
 
@@ -73,9 +73,9 @@ public class DateTimeIsAtLeastTests
     {
         var futureValue = ThePresent.AddDays(2.5);
 
-        futureValue.Is().AtLeast(2).Days().After(ThePresent).Should().BeTrue();
-        futureValue.Is().AtLeast(2.5).Days().After(ThePresent).Should().BeTrue();
-        futureValue.Is().AtLeast(3).Days().After(ThePresent).Should().BeFalse();
+        futureValue.IsAtLeast(2).Days.After(ThePresent).Should().BeTrue();
+        futureValue.IsAtLeast(2.5).Days.After(ThePresent).Should().BeTrue();
+        futureValue.IsAtLeast(3).Days.After(ThePresent).Should().BeFalse();
     }
 
 
@@ -84,8 +84,8 @@ public class DateTimeIsAtLeastTests
     {
         var futureValue = ThePresent.AddDays(2.5);
 
-        ThePresent.Is().AtLeast(2).Days().Before(futureValue).Should().BeFalse();
-        ThePresent.Is().AtLeast(2.5).Days().Before(futureValue).Should().BeTrue();
-        ThePresent.Is().AtLeast(3).Days().Before(futureValue).Should().BeTrue();
+        ThePresent.IsAtLeast(2).Days.Before(futureValue).Should().BeFalse();
+        ThePresent.IsAtLeast(2.5).Days.Before(futureValue).Should().BeTrue();
+        ThePresent.IsAtLeast(3).Days.Before(futureValue).Should().BeTrue();
     }
 }
