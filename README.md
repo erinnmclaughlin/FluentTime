@@ -8,10 +8,10 @@ public class ExpirationDateService
 
     public bool IsExpired()
     {
-        return DateTime.Now.IsAfter(expirationDate);
+        return Currently.It.IsBefore(expirationDate);
     }
 
-    public bool IsAlmostExpired()
+    public bool IsExpiringSoon()
     {
         return !IsExpired() && expirationDate.IsWithin(48).Hours.Of(DateTime.Now);
     }
