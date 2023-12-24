@@ -18,7 +18,7 @@ public class ExpirationDateService
 
     public bool IsVeryExpired()
     {
-        return Currently.It.IsAtLeast(7).Days.After(ExpirationDate);
+        return Currently.It.Is(7).OrMore.Days.After(ExpirationDate);
     }
     
     public bool IsExpiredAsOf(DateTime dateToCheck)
