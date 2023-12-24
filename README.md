@@ -22,3 +22,7 @@ public class ExpirationDateService
     }
 }
 ```
+
+TODO:
+
+NuGet package coming soon!
