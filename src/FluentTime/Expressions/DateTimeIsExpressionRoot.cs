@@ -1,6 +1,6 @@
 ﻿namespace FluentTime.Expressions.AtLeast;
 
-internal abstract record DateTimeIsExpressionRoot<TExpression> : IDateTimeIsExpressionRoot<TExpression>
+public abstract record DateTimeIsExpressionRoot<TExpression>
 {
     public TExpression Seconds => GetExpression(UnitOfTime.Seconds);
     public TExpression Hours => GetExpression(UnitOfTime.Hours);
