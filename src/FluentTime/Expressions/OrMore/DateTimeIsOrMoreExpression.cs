@@ -1,6 +1,4 @@
-﻿using FluentTime.Expressions;
-
-namespace FluentTime.Expressions.OrMore;
+﻿namespace FluentTime.Expressions.OrMore;
 
 public record DateTimeIsOrMoreExpression(DateTimeIsContext Context) : DateTimeIsExpression(Context)
 {
