@@ -13,7 +13,7 @@ public class ExpirationDateService
 
     public bool IsExpiringSoon()
     {
-        return !IsExpired() && expirationDate.IsWithin(48).Hours.Of(DateTime.Now);
+        return !IsExpired() && expirationDate.IsWithin(48).Hours;
     }
 }
 ```
