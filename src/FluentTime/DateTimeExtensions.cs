@@ -7,6 +7,8 @@ namespace FluentTime;
 public static class DateTimeExtensions
 {
     public static bool Is(this DateTime dt1, DateTime dt2) => dt1.Equals(dt2);
+    public static bool IsInThePast(this DateTime dt) => Currently.It.IsAfter(dt);
+    public static bool IsInTheFuture(this DateTime dt) => Currently.It.IsBefore(dt);
 
     public static bool IsAfter(this DateTime root, DateTime dateTime)
     {
